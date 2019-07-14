@@ -13,12 +13,21 @@ class Puzzle5 {
 	}
 
 	private static double sumDifferences(double [] differences){
-		// IMPLEMENT METHOD
+		 double sum = 0;
+		 for(int i=0; i < differences.length; i++){
+		 	sum += differences[i];
+		 }
+		 return sum;
 	}
 
 	// Loss Function should be ∑((y-y') ^ 2)
 	private static double lossFunction(int [] inputValues, int [] outputValues){
-	 	// IMPLEMENT METHOD
+		double[] db = new double[outputValues.length];
+	 	for(int j = 0; j < outputValues.length; j++){
+	 		db[j] = (outputValues[j] - model(outputValues[j]))*(outputValues[j] - model(outputValues[j]));
+	 	}
+	 	return sumDifferences(db);
+
 	}
 
 	public static void main(String [] args){
